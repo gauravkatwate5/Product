@@ -13,17 +13,18 @@ Route::get('/', function () {
 
 // Admin Routes
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-Route::get('/dashbord', [DashboardController::class, 'index'])->name('dashbord');
+
 
 
 // dashboard Routes
-Route::get('/', function () {
-    if (session('user')) {
-        return redirect()->route('dashbord');
-    } else {
-        return redirect()->route('loginview')->with('error', 'You must log in first');
-    }
-})->name('/');
+Route::get('/', [DashboardController::class, 'index'])->name('/');
+// Route::get('/', function () {
+//     if (session('user')) {
+//         return redirect()->route('dashbord');
+//     } else {
+//         return redirect()->route('loginview')->with('error', 'You must log in first');
+//     }
+// })->name('/');
 
 // auth Routes
 Route::get('/loginview', [AuthController::class, 'loginview'])->name('loginview');
@@ -36,3 +37,4 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('add_edit_product/{id?}', [ProductController::class, 'add_product'])->name('add_edit_product');
 Route::post('product_store', [ProductController::class, 'product_store'])->name('product_store');
 Route::get('delete_product/{id}', [ProductController::class, 'delete_product'])->name('delete_product');
+Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');

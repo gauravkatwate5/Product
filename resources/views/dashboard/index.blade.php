@@ -31,6 +31,9 @@
                                     <p class="card-text">{{ $product->description }}</p>
                                     <h6 class="text-primary">Price: ${{ number_format($product->amount, 2) }}</h6>
                                 </div>
+                                <div class="card-footer text-center">
+                                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">View Details</a>
+                                </div>
                             </div>
                         </div>
                     @empty

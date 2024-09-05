@@ -13,8 +13,8 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                     <h4>Welcome, {{ session('user')->name }}</h4>
-                     <a href="{{ route('logout') }}" class="btn btn-danger m-1 btn-sm">Logout</a>
+                     <h4>Welcome</h4>
+                     <a href="{{ route('loginview') }}" class="btn btn-danger m-1 btn-sm ms-4">Login</a>
                 </div>
             </div>
         </div>

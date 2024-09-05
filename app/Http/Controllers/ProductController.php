@@ -51,4 +51,15 @@ class ProductController extends Controller
     $product->delete();
     return redirect()->route('admin')->with('success', 'Product deleted successfully.');
     }
+
+    public function show($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return redirect()->route('dashboard.index')->with('error', 'Product not found');
+        }
+
+        return view('product.show', compact('product'));
+    }
 }
